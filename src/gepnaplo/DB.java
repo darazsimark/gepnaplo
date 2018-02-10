@@ -5,6 +5,7 @@
  */
 package gepnaplo;
 
+import java.net.UnknownHostException;
 import java.time.LocalDateTime;
 
 /**
@@ -12,15 +13,24 @@ import java.time.LocalDateTime;
  * @author Darázsi Márk
  */
 public class DB {
+
     private String datumido() {
         String s = LocalDateTime.now().toString();
         return s.substring(0, 10) + " " + s.substring(11, 19);
     }
-    
+
     private String felh() {
-        return System.getProperty("user.name");
+        //return System.getProperty("user.name");
+        java.net.InetAddress localMachine;
+        try {
+            localMachine = java.net.InetAddress.getLocalHost();
+            return localMachine.getHostName();
+        } catch (UnknownHostException ex) {
+            System.out.println(ex.getMessage());
+            return "Ismeretlen";
+        }
     }
-    
+
     public static void main(String[] args) {
         DB ab = new DB();
         System.out.println(ab.datumido());
