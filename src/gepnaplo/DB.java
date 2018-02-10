@@ -36,7 +36,7 @@ public class DB {
     }
 
     public void beir(String iskola, String osztaly, String nev, String allapot) {
-        final String dbUrl = "jdbc:mysql://localhost:3306/gepnaplo"
+        final String dbUrl = "jdbc:mysql://192.168.122.153:3306/gepnaplo"
                 + "?useUnicode=true&characterEncoding=UTF-8";
         final String user = "tanulo";
         final String pass = "tanulo";
