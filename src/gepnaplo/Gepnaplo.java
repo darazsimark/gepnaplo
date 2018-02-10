@@ -5,7 +5,11 @@
  */
 package gepnaplo;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 /**
  *
@@ -19,6 +23,7 @@ public class Gepnaplo extends javax.swing.JFrame {
     public Gepnaplo() {
         initComponents();
         txtOsztaly.requestFocus();
+        idozito.start();
     }
     
     private String levag(String s, int h) {
@@ -42,6 +47,13 @@ public class Gepnaplo extends javax.swing.JFrame {
         ab.beir(iskola, osztaly, nev, allapot);
         System.exit(0);
     }
+    
+    private Timer idozito = new Timer(500, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            setLocationRelativeTo(null);
+            }
+        });
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -62,10 +74,18 @@ public class Gepnaplo extends javax.swing.JFrame {
         txtAllapot = new javax.swing.JTextField();
         btnKesz = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Gépnapló");
         setAlwaysOnTop(true);
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+            public void windowIconified(java.awt.event.WindowEvent evt) {
+                formWindowIconified(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -86,6 +106,11 @@ public class Gepnaplo extends javax.swing.JFrame {
         txtIskola.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         txtOsztaly.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtOsztaly.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtOsztalyKeyPressed(evt);
+            }
+        });
 
         txtNev.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
@@ -160,6 +185,19 @@ public class Gepnaplo extends javax.swing.JFrame {
     private void btnKeszActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKeszActionPerformed
         kesz();
     }//GEN-LAST:event_btnKeszActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        kesz();
+    }//GEN-LAST:event_formWindowClosing
+
+    private void txtOsztalyKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtOsztalyKeyPressed
+        if (evt.isAltDown() && evt.getKeyChar() == 'y')
+            System.exit(0);
+    }//GEN-LAST:event_txtOsztalyKeyPressed
+
+    private void formWindowIconified(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowIconified
+        setState(JFrame.NORMAL);
+    }//GEN-LAST:event_formWindowIconified
 
     /**
      * @param args the command line arguments
