@@ -157,6 +157,9 @@
         <Property name="mnemonic" type="int" value="107"/>
         <Property name="text" type="java.lang.String" value="K&#xe9;sz"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnKeszActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

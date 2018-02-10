@@ -5,6 +5,8 @@
  */
 package gepnaplo;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Darázsi Márk
@@ -24,6 +26,21 @@ public class Gepnaplo extends javax.swing.JFrame {
             return s.substring(0, h);
         else
             return s;
+    }
+    
+    private void kesz() {
+        String iskola = levag(txtIskola.getText().trim(), 40);
+        String osztaly = levag(txtOsztaly.getText().trim(), 8);
+        String nev = levag(txtNev.getText().trim(), 50);
+        String allapot = levag(txtAllapot.getText().trim(), 50);
+        if (iskola.equals("") || osztaly.equals("") ||
+            nev.equals("") || allapot.equals("")) {
+            JOptionPane.showMessageDialog(this, "Adj meg minden adatot!", "Hiba!",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        DB ab = new DB();
+        ab.beir(iskola, osztaly, nev, allapot);
+        System.exit(0);
     }
 
     /**
@@ -76,6 +93,11 @@ public class Gepnaplo extends javax.swing.JFrame {
 
         btnKesz.setMnemonic('k');
         btnKesz.setText("Kész");
+        btnKesz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKeszActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -134,6 +156,10 @@ public class Gepnaplo extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnKeszActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKeszActionPerformed
+        kesz();
+    }//GEN-LAST:event_btnKeszActionPerformed
 
     /**
      * @param args the command line arguments
