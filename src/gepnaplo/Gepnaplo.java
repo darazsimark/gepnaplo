@@ -7,7 +7,7 @@ package gepnaplo;
 
 /**
  *
- * @author t1
+ * @author Darázsi Márk
  */
 public class Gepnaplo extends javax.swing.JFrame {
 
@@ -16,6 +16,14 @@ public class Gepnaplo extends javax.swing.JFrame {
      */
     public Gepnaplo() {
         initComponents();
+        txtOsztaly.requestFocus();
+    }
+    
+    private String levag(String s, int h) {
+        if (s.length() > h)
+            return s.substring(0, h);
+        else
+            return s;
     }
 
     /**
@@ -124,6 +132,7 @@ public class Gepnaplo extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
