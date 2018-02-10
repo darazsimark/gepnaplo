@@ -103,7 +103,9 @@ public class Gepnaplo extends javax.swing.JFrame {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Gép állapota:");
 
+        txtIskola.setEditable(false);
         txtIskola.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtIskola.setText("BKSZC Pogány Frigyes Szakgimnáziuma");
 
         txtOsztaly.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtOsztaly.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -115,6 +117,7 @@ public class Gepnaplo extends javax.swing.JFrame {
         txtNev.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         txtAllapot.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtAllapot.setText("Rendben.");
 
         btnKesz.setMnemonic('k');
         btnKesz.setText("Kész");
@@ -134,7 +137,7 @@ public class Gepnaplo extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtIskola))
+                        .addComponent(txtIskola, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -148,7 +151,7 @@ public class Gepnaplo extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnKesz, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
+                            .addComponent(btnKesz, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtAllapot))))
                 .addContainerGap())
         );
