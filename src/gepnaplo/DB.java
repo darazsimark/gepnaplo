@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 public class DB {
     private String datumido() {
         String s = LocalDateTime.now().toString();
-        return s;
+        return s.substring(0, 10) + " " + s.substring(11, 19);
     }
     
     public static void main(String[] args) {
