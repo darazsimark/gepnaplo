@@ -17,8 +17,13 @@ public class DB {
         return s.substring(0, 10) + " " + s.substring(11, 19);
     }
     
+    private String felh() {
+        return System.getProperty("user.name");
+    }
+    
     public static void main(String[] args) {
         DB ab = new DB();
         System.out.println(ab.datumido());
+        System.out.println(ab.felh());
     }
 }
